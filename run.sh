@@ -27,4 +27,4 @@ echo "MaxInstances  $FTP_MAX_CONNECTIONS" >> /etc/proftpd/conf.d/custom.conf
 
 
 echo "Starting Proftpd:"
-exec /usr/sbin/proftpd -nc /etc/proftpd/proftpd.conf
+exec /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf
