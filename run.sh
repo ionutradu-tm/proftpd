@@ -17,7 +17,7 @@ if [ -z "$FTP_PASSIVE_PORTS" ]
    then
       FTP_PASSIVE_PORTS="31100 31139"
 fi
-echo "PassivePorts  $FTP_PASSIVE_PORTS" >> /etc/proftpd/conf.d/custom.conf
+echo "PassivePorts  $FTP_PASSIVE_PORTS" |  sed -e  "s/:/ /g" >> /etc/proftpd/conf.d/custom.conf
 
 if [ -z "$FTP_MAX_CONNECTIONS" ]
    then
