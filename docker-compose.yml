@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  ftpserver:
+    image: iradu/proftpd
+    ports:
+      - "21:21"
+      - "20:20"
+      - "31200-31239:31200-31239"
+    environment:
+      FTP_USER_NAME: guest
+      FTP_USER_PASS: guest
+      FTP_MAX_CONNECTIONS: 20
+      FTP_PASSIVE_PORTS: "31200 31239"
+
+
