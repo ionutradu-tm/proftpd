@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir /home/ftpusers
 
 if [ -n "$FTP_USER_NAME" -a -n "$FTP_USER_PASS" ]; 
     then
