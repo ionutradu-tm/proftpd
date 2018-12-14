@@ -1,7 +1,7 @@
 FROM debian:stretch
 
 RUN  apt-get -y update && \
-     apt-get -y install proftpd && \
+     apt-get -y install proftpd && 
 
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
