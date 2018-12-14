@@ -1,11 +1,10 @@
 #!/bin/bash
 
-mkdir /home/ftpusers
 
 if [ -n "$FTP_USER_NAME" -a -n "$FTP_USER_PASS" ]; 
     then
 	CRYPTED_PASSWORD=$(perl -e 'print crypt($ARGV[0], "password")' $FTP_USER_PASS)
-	mkdir /home/$FTP_USER_NAME
+	mkdir /home/ftpusers/$FTP_USER_NAME
 	useradd --shell /bin/sh -d /home/ftpusers/$FTP_USER_NAME --password $CRYPTED_PASSWORD $FTP_USER_NAME
 	chown -R $FTP_USER_NAME:$FTP_USER_NAME /home/ftpusers/$FTP_USER_NAME
 fi
