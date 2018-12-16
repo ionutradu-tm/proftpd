@@ -10,7 +10,7 @@ if [ -n "$FTP_USER_NAME" -a -n "$FTP_USER_PASS" ];
 fi
 
 echo "HiddenStores  on" >> /etc/proftpd/conf.d/custom.conf
-echo "MasqueradeAddress externalIP" >> /etc/proftpd/conf.d/custom.conf
+echo "MasqueradeAddress $HOST" >> /etc/proftpd/conf.d/custom.conf
 
 
 if [ -z "$FTP_PASSIVE_PORTS" ]
