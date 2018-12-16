@@ -33,13 +33,13 @@ Example:
 
 FTP_MAX_CONNECTIONS=10
 
-ExternalIP
+External IP
 ----------------------------
 Set the external IP Address using the environment variable FTP_MasqueradeAddress
 
 Example
 
-FTP_MasqueradeAddress=yes        the environment varibale $HOST will be used
+FTP_MasqueradeAddress=yes        the environment variable $HOST will be used
 
 FTP_MasqueradeAddress=no         disable
 
