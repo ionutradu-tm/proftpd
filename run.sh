@@ -32,10 +32,10 @@ fi
 
 if [[ ${FTP_MasqueradeAddress,,} == "yes" ]];
 then
-  echo "MasqueradeAddress $HOST"
+  echo "MasqueradeAddress $HOST" >> /etc/proftpd/conf.d/custom.conf
 elif [[ ${FTP_MasqueradeAddress,,} != "no" ]];
     then
-    echo "MasqueradeAddress $FTP_MasqueradeAddress"
+    echo "MasqueradeAddress $FTP_MasqueradeAddress" >> /etc/proftpd/conf.d/custom.conf
 fi
 
 echo "Starting Proftpd: /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf"
