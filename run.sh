@@ -10,7 +10,6 @@ if [ -n "$FTP_USER_NAME" -a -n "$FTP_USER_PASS" ];
 fi
 
 echo "HiddenStores  on" >> /etc/proftpd/conf.d/custom.conf
-echo "MasqueradeAddress $HOST" >> /etc/proftpd/conf.d/custom.conf
 
 
 if [ -z "$FTP_PASSIVE_PORTS" ]
@@ -31,7 +30,13 @@ then
  echo "TransferLog none" >>  /etc/proftpd/conf.d/custom.conf
 fi
 
+if [[ ${FTP_MasqueradeAddress,,} == "yes" ]];
+then
+  echo "MasqueradeAddress $HOST"
+elif [[ ${FTP_MasqueradeAddress,,} != "no" ]];
+    then
+    echo "MasqueradeAddress $FTP_MasqueradeAddress"
+fi
 
-
-echo "Starting Proftpd:"
+echo "Starting Proftpd: /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf"
 exec /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf
