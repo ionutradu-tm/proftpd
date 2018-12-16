@@ -24,6 +24,12 @@ if [ -z "$FTP_MAX_CONNECTIONS" ]
 fi
 echo "MaxInstances  $FTP_MAX_CONNECTIONS" >> /etc/proftpd/conf.d/custom.conf
 
+if [[ $DISABLE_LOGS == "yes" ]];
+then
+ echo "SystemLog none" >>  /etc/proftpd/conf.d/custom.conf
+ echo "TransferLog none" >>  /etc/proftpd/conf.d/custom.conf
+fi
+
 
 
 echo "Starting Proftpd:"
