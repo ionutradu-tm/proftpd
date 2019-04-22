@@ -39,5 +39,10 @@ elif [[ ${FTP_MasqueradeAddress,,} != "no" ]];
     echo "MasqueradeAddress $FTP_MasqueradeAddress" >> /etc/proftpd/conf.d/custom.conf
 fi
 
+echo "custom.conf:"
+cat /etc/proftpd/conf.d/custom.conf
+echo "Print env"
+env
+
 echo "Starting Proftpd: /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf"
 exec /usr/sbin/proftpd -nqc /etc/proftpd/proftpd.conf
