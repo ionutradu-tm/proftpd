@@ -31,12 +31,12 @@ then
  echo "TransferLog none" >>  /etc/proftpd/conf.d/custom.conf
 fi
 
-if [[ ${FTP_MasqueradeAddress,,} == "yes" ]];
+if [[ ${FTP_MASQUERADEADDRESS,,} == "yes" ]];
 then
   echo "MasqueradeAddress $HOST" >> /etc/proftpd/conf.d/custom.conf
-elif [[ ${FTP_MasqueradeAddress,,} != "no" ]];
+elif [[ ${FTP_MASQUERADEADDRESS,,} != "no" ]];
     then
-    echo "MasqueradeAddress $FTP_MasqueradeAddress" >> /etc/proftpd/conf.d/custom.conf
+    echo "MasqueradeAddress $FTP_MASQUERADEADDRESS" >> /etc/proftpd/conf.d/custom.conf
 fi
 
 echo "custom.conf:"
