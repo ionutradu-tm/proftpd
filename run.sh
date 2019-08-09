@@ -39,6 +39,10 @@ elif [[ ${FTP_MASQUERADEADDRESS,,} != "no" ]];
     echo "MasqueradeAddress $FTP_MASQUERADEADDRESS" >> /etc/proftpd/conf.d/custom.conf
 fi
 
+if [[ -n $TIMEOUT ]]; then
+   echo "TimeoutIdle $TIMEOUT" >> /etc/proftpd/conf.d/custom.conf
+fi
+
 echo "custom.conf:"
 cat /etc/proftpd/conf.d/custom.conf
 
