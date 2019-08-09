@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+sleep 15
 if [ -n "$FTP_USER_NAME" -a -n "$FTP_USER_PASS" ]; 
     then
 	CRYPTED_PASSWORD=$(perl -e 'print crypt($ARGV[0], "password")' $FTP_USER_PASS)
