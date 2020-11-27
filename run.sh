@@ -31,9 +31,26 @@ then
  echo "TransferLog none" >>  /etc/proftpd/conf.d/custom.conf
 fi
 
+
+#Obtain external IP
+# for DC/OS
+if [[ -z "$MY_IP" ]]; then
+    export MY_IP=$HOST
+    echo "My ip is: $MY_IP"
+fi
+# for AKS
+if [[ -z "$MY_IP" ]]; then
+    export MY_IP=$(getent hosts $(hostname)| cut -d\  -f1)
+    echo "My ip is: $MY_IP"
+fi
+
+
+# FTP_MASQUERADEADDRESS="yes" --> autodetect IP address
+# FTP_MASQUERADEADDRESS != "yes" --> use the IP address provided by this var
+
 if [[ ${FTP_MASQUERADEADDRESS,,} == "yes" ]];
 then
-  echo "MasqueradeAddress $HOST" >> /etc/proftpd/conf.d/custom.conf
+  echo "MasqueradeAddress $MY_IP" >> /etc/proftpd/conf.d/custom.conf
 elif [[ ${FTP_MASQUERADEADDRESS,,} != "no" ]];
     then
     echo "MasqueradeAddress $FTP_MASQUERADEADDRESS" >> /etc/proftpd/conf.d/custom.conf
